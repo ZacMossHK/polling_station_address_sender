@@ -1,4 +1,4 @@
-export const pollingDataExists = {
+module.exports = pollingDataExistsResponse = {
   address_picker: false,
   addresses: [],
   dates: [
