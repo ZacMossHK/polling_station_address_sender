@@ -1,1 +1,1 @@
-class ElectoralCommisionApi {}
+export class ElectoralCommisionApi {}
