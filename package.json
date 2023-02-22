@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/ZacMossHK/polling_station_image_sender#readme",
   "dependencies": {
+    "dotenv": "^16.0.3",
     "jest": "^29.4.3",
     "jest-fetch-mock": "^3.0.3"
   },

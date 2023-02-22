@@ -1,6 +1,8 @@
+require("dotenv").config();
+
 module.exports = class ElectoralCommisionApi {
   constructor() {
-    this.apiKey;
+    this.process.env.EC_API_KEY;
   }
 
   async getPollingStationAddressInfo(postcode) {
