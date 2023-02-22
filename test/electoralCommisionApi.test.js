@@ -1,7 +1,7 @@
 const ElectoralCommisionApi = require("../src/electoralCommisionAPI");
-const pollingDataExistsResponse = require("./exampleApiResults/electoralCommision/pollingDataExistsResponse");
-const noUpcomingBallotsResponse = require("./exampleApiResults/electoralCommision/noUpcomingBallotsResponse");
-const addressPickerResponse = require("./exampleApiResults/electoralCommision/addressPickerResponse");
+const pollingDataExistsResponse = require("./exampleApiResponses/electoralCommision/pollingDataExistsResponse");
+const noUpcomingBallotsResponse = require("./exampleApiResponses/electoralCommision/noUpcomingBallotsResponse");
+const addressPickerResponse = require("./exampleApiResponses/electoralCommision/addressPickerResponse");
 
 let api;
 describe("ElectoralCommisionApi class", () => {
