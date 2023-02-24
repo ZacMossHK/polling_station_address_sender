@@ -1,8 +1,9 @@
 module.exports = class TwilioApi {
-  constructor(accountSid, authToken, fromNumberWhatsapp) {
+  constructor(accountSid, authToken, fromNumberWhatsapp, messagingServiceSid) {
     this.accountSid = accountSid;
     this.authToken = authToken;
     this.fromNumberWhatsapp = fromNumberWhatsapp;
+    this.messagingServiceSid = messagingServiceSid;
     this.client = require("twilio")(accountSid, authToken);
   }
 
@@ -24,6 +25,21 @@ module.exports = class TwilioApi {
       return true;
     } catch (error) {
       // errors will be thrown by the Twilio module in the event that a message is sent unsucessfully.
+      console.log(error);
+      return false;
+    }
+  }
+
+  async sendSmsMessage(body, toNumber) {
+    try {
+      const message = await this.client.messages.create({
+        body,
+        messagingServiceSid: this.messagingServiceSid,
+        to: `${toNumber}`,
+      });
+      console.log(`Message sent! SID: ${message.sid}`);
+      return true;
+    } catch (error) {
       console.log(error);
       return false;
     }
