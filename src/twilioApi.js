@@ -14,13 +14,10 @@ module.exports = class TwilioApi {
 
   toNumber must be prefixed with an international dialling code and no 0, eg. UK = 0798... => +44798...
   */
-  async sendWhatsAppMessage(body, toNumber) {
+
+  async sendMessage(createParams) {
     try {
-      const message = await this.client.messages.create({
-        body,
-        from: `whatsapp:${this.fromNumberWhatsapp}`,
-        to: `whatsapp:${toNumber}`,
-      });
+      const message = await this.client.messages.create(createParams);
       console.log(`Message sent! SID: ${message.sid}`);
       return true;
     } catch (error) {
@@ -28,6 +25,14 @@ module.exports = class TwilioApi {
       console.log(error);
       return false;
     }
+  }
+
+  async sendWhatsAppMessage(body, toNumber) {
+    return await this.sendMessage({
+      body,
+      from: `whatsapp:${this.fromNumberWhatsapp}`,
+      to: `whatsapp:${toNumber}`,
+    });
   }
 
   async sendSmsMessage(body, toNumber) {
