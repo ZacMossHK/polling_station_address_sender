@@ -6,6 +6,9 @@ module.exports = class ImageSender {
     this.twilioApi = twilioApi;
   }
 
+  /* combines recipient name and polling station address info into a message body with linebreaks
+  Args: [name: string, pollingStationAddressInfo: object: {postcode: string, address: string}]
+  returns a string */
   createMessageBody(name, pollingStationAddressInfo) {
     const addressWithLineBreaks = pollingStationAddressInfo.address.replace(
       /, /g,
