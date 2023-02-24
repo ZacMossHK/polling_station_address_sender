@@ -20,6 +20,10 @@ module.exports = class ImageSender {
     return `Hi ${name},\n\nIt's time to vote! Your polling station is:\n\n${addressWithLineBreaks}${postcodeWithLineBreak}`;
   }
 
+  /* sends a message to a recipient with information about their nearest polling station.
+  Args: [name: string, postcode: string, number: string, messageType: string]
+  Returns true if the message is sent successfully, otherwise false
+  */
   async sendPollingStationMessage(name, postcode, number, messageType) {
     try {
       const pollingStationAddressInfo =
