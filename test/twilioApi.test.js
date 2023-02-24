@@ -6,13 +6,14 @@ require("twilio").mockImplementation(() => ({
   messages: { create: mockCreate },
 }));
 
-let twilioApi, logSpy;
-describe("TwilioApi class", () => {
-  beforeEach(() => {
-    twilioApi = new TwilioApi();
-    mockCreate.mockReset();
-  });
+let twilioApi;
 
+beforeEach(() => {
+  twilioApi = new TwilioApi();
+  mockCreate.mockReset();
+});
+
+describe("sendWhatsAppMessage method", () => {
   it("sends a WhatsApp message", async () => {
     mockCreate.mockResolvedValueOnce({ sid: "0" });
     const result = await twilioApi.sendWhatsAppMessage("hello", "1234");
