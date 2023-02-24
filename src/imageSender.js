@@ -6,18 +6,23 @@ module.exports = class ImageSender {
     this.twilioApi = twilioApi;
   }
 
+  createMessageBody(name, pollingStationAddressInfo) {
+    const addressWithLineBreaks = pollingStationAddressInfo.address.replace(
+      /, /g,
+      ",\n"
+    );
+    const postcodeWithLineBreak = pollingStationAddressInfo.address.postcode
+      ? `\n${pollingStationAddressInfo.address.postcode}`
+      : "";
+    return `Hi ${name},\n\nIt's time to vote! Your polling station is:\n\n${addressWithLineBreaks}${postcodeWithLineBreak}`;
+  }
+
   async sendPollingStationMessage(name, postcode, number, messageType) {
     const pollingStationAddressInfo =
       await this.electoralCommisionApi.getPollingStationAddressInfo(postcode);
-    const message = `Hi ${name},\n\nIt's time to vote! Your polling station is:\n\n${pollingStationAddressInfo.address.replace(
-      /, /g,
-      ",\n"
-    )}${
-      pollingStationAddressInfo.address.postcode
-        ? `\n${pollingStationAddressInfo.address.postcode}`
-        : ""
-    }`;
-    console.log(message);
-    return await this.twilioApi.sendWhatsAppMessage(message, number);
+    return await this.twilioApi.sendWhatsAppMessage(
+      this.createMessageBody(name, pollingStationAddressInfo),
+      number
+    );
   }
 };
