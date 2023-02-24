@@ -1,11 +1,15 @@
-## Google Maps
+## Twilio
 
-### Getting a Google Maps API Key
+Create a Twilio account at https://www.twilio.com/
 
-Follow the instructions on https://developers.google.com/maps/documentation/streetview/get-api-key.
+Follow the instructions at https://console.twilio.com/us1/develop/sms/try-it-out/get-set-up to get an account SID and Auth Token, then click 'try SMS' and 'try WhatsApp' to get set up with those services.
 
-Add the API key to the .env file with the key `GOOGLE_MAPS_API_KEY`.
+Create the following variables in .env:
 
-### Getting a Digital Signature
-
-Follow the instructions on https://developers.google.com/maps/documentation/streetview/digital-signature.
+```
+ELECTORAL_COMMISION_API_KEY = your Electoral Commision API Key
+TWILIO_AUTH_TOKEN
+TWILIO_ACCOUNT_SID
+TWILIO_FROM_NUMBER_WHATSAPP = number that will be sending WhatsApp messages
+TWILIO_MESSAGING_SERVICE_SID = SID for sending SMS messages
+```
