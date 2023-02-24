@@ -11,3 +11,12 @@ const twilioApi = new TwilioApi(
   process.env.TWILIO_FROM_NUMBER_WHATSAPP,
   process.env.TWILIO_MESSAGING_SERVICE_SID
 );
+
+twilioApi.sendWhatsAppMessage(
+  "Hey there! This is a message from the code.",
+  "+447983352662"
+);
+twilioApi.sendSmsMessage(
+  "Hey there! This is a message from the code.",
+  "+447983352662"
+);

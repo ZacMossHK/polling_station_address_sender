@@ -51,7 +51,7 @@ describe("ImageSender class", () => {
     expect(result).toBe(true);
   });
 
-  fit("returns false if the EC Api throws an error", async () => {
+  it("returns false if the EC Api throws an error", async () => {
     mockEcApi = {
       getPollingStationAddressInfo: jest.fn().mockImplementation(() => {
         throw Error();
