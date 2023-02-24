@@ -20,9 +20,9 @@ module.exports = class ImageSender {
   async sendPollingStationMessage(name, postcode, number, messageType) {
     const pollingStationAddressInfo =
       await this.electoralCommisionApi.getPollingStationAddressInfo(postcode);
-    return await this.twilioApi.sendWhatsAppMessage(
-      this.createMessageBody(name, pollingStationAddressInfo),
-      number
-    );
+    const body = this.createMessageBody(name, pollingStationAddressInfo);
+    if (messageType === "sms")
+      return await this.twilioApi.sendSmsMessage(body, number);
+    return await this.twilioApi.sendWhatsAppMessage(body, number);
   }
 };
