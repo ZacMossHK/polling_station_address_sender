@@ -31,6 +31,7 @@ module.exports = class ImageSender {
         number
       );
     } catch (error) {
+      console.log(error);
       return false;
     }
   }
