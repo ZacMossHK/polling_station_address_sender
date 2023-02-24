@@ -12,7 +12,6 @@ module.exports = class TwilioApi {
       from: `whatsapp:${this.fromNumberWhatsapp}`,
       to: `whatsapp:${toNumber}`,
     });
-    console.log(message);
     console.log(`Message sent! SID: ${message.sid}`);
   }
 };

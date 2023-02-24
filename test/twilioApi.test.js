@@ -1,16 +1,15 @@
 const TwilioApi = require("../src/twilioApi");
 jest.mock("twilio");
 
-const mockClient = require("twilio");
 const mockCreate = jest.fn();
-mockClient.mockImplementation(() => {
-  return { messages: { create: mockCreate } };
-});
+require("twilio").mockImplementation(() => ({
+  messages: { create: mockCreate },
+}));
 
 let twilioApi, logSpy;
 describe("TwilioApi class", () => {
   beforeEach(() => {
-    twilioApi = new TwilioApi("accountSid", "authToken", "012345");
+    twilioApi = new TwilioApi();
     logSpy = jest.spyOn(global.console, "log");
   });
 
