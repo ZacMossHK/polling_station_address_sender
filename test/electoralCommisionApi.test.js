@@ -31,4 +31,11 @@ describe("ElectoralCommisionApi class", () => {
     const result = await api.getPollingStationAddressInfo("postcode");
     expect(result).toEqual({});
   });
+
+  it("throws an error if there was an issue", async () => {
+    fetch.mockResponseOnce(() => {
+      throw Error();
+    });
+    expect(api.getPollingStationAddressInfo("postcode")).rejects.toThrow(Error);
+  });
 });
