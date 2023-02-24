@@ -1,5 +1,3 @@
-require("dotenv").config();
-
 module.exports = class ImageSender {
   constructor(electoralCommisionApi, twilioApi) {
     this.electoralCommisionApi = electoralCommisionApi;
