@@ -7,14 +7,13 @@ module.exports = class TwilioApi {
     this.client = require("twilio")(accountSid, authToken);
   }
 
-  /* sends a whatsapp message to a chosen number
-  body: string
-  toNumber: string
-  return value: bool, true if message sent succesfully, false if not
+  /* sends a message using the Twilio API and module
 
-  toNumber must be prefixed with an international dialling code and no 0, eg. UK = 0798... => +44798...
+  Args: [createParams: object]
+  
+  If a message is unsucessful the twilio module will throw an error, otherwise it will return an object
+  See here for response object examples: https://www.twilio.com/docs/usage/twilios-response
   */
-
   async sendMessage(createParams) {
     try {
       const message = await this.client.messages.create(createParams);
@@ -27,6 +26,13 @@ module.exports = class TwilioApi {
     }
   }
 
+  /* both these functions send a message to a chosen number
+
+  Args: [body: string, toNumber: string]
+  return value: bool, true if message sent succesfully, false if not
+
+  toNumber must be prefixed with an international dialling code and no 0, eg. UK = 0798... => +44798...
+  */
   async sendWhatsAppMessage(body, toNumber) {
     return await this.sendMessage({
       body,
@@ -36,17 +42,10 @@ module.exports = class TwilioApi {
   }
 
   async sendSmsMessage(body, toNumber) {
-    try {
-      const message = await this.client.messages.create({
-        body,
-        messagingServiceSid: this.messagingServiceSid,
-        to: `${toNumber}`,
-      });
-      console.log(`Message sent! SID: ${message.sid}`);
-      return true;
-    } catch (error) {
-      console.log(error);
-      return false;
-    }
+    return await this.sendMessage({
+      body,
+      messagingServiceSid: this.messagingServiceSid,
+      to: `${toNumber}`,
+    });
   }
 };
