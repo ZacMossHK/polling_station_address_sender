@@ -20,12 +20,13 @@ describe("sendWhatsAppMessage method", () => {
     expect(result).toBe(true);
   });
 
-  it("catches an error", async () => {
+  it("throws an error", async () => {
     mockCreate.mockImplementationOnce(() => {
-      throw new Error();
+      throw Error();
     });
-    const result = await twilioApi.sendWhatsAppMessage("hello", "1234");
-    expect(result).toBe(false);
+    expect(async () => {
+      await twilioApi.sendWhatsAppMessage("hello", "1234");
+    }).rejects.toThrow(Error);
   });
 });
 
@@ -36,11 +37,12 @@ describe("sendSmsMessage method", () => {
     expect(result).toBe(true);
   });
 
-  it("catches an error", async () => {
+  it("throws another error", async () => {
     mockCreate.mockImplementationOnce(() => {
-      throw new Error();
+      throw Error();
     });
-    const result = await twilioApi.sendWhatsAppMessage("hello", "1234");
-    expect(result).toBe(false);
+    expect(async () => {
+      await twilioApi.sendWhatsAppMessage("hello", "1234");
+    }).rejects.toThrow(Error);
   });
 });

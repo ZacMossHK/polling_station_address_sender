@@ -15,21 +15,15 @@ module.exports = class TwilioApi {
   See here for response object examples: https://www.twilio.com/docs/usage/twilios-response
   */
   async sendMessage(createParams) {
-    try {
-      const message = await this.client.messages.create(createParams);
-      console.log(`Message sent! SID: ${message.sid}`);
-      return true;
-    } catch (error) {
-      // errors will be thrown by the Twilio module in the event that a message is sent unsucessfully.
-      console.log(error);
-      return false;
-    }
+    const message = await this.client.messages.create(createParams);
+    console.log(`Message sent! SID: ${message.sid}`);
+    return true;
   }
 
   /* both these functions send a message to a chosen number
 
   Args: [body: string, toNumber: string]
-  return value: bool, true if message sent succesfully, false if not
+  return value: bool, true if message sent succesfully, throws an error if not
 
   toNumber must be prefixed with an international dialling code and no 0, eg. UK = 0798... => +44798...
   */
