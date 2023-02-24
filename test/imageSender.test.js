@@ -21,7 +21,7 @@ describe("ImageSender class", () => {
       "name",
       "postcode",
       "number",
-      "whatsapp"
+      "WhatsApp"
     );
     expect(mockEcApi.getPollingStationAddressInfo).toHaveBeenCalledWith(
       "postcode"
@@ -42,7 +42,7 @@ describe("ImageSender class", () => {
       "name",
       "postcode",
       "number",
-      "sms"
+      "Sms"
     );
     expect(mockEcApi.getPollingStationAddressInfo).toHaveBeenCalledWith(
       "postcode"
