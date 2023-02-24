@@ -50,4 +50,20 @@ describe("ImageSender class", () => {
     expect(mockTwilioApi.sendSmsMessage).toHaveBeenCalledWith(body, "number");
     expect(result).toBe(true);
   });
+
+  fit("returns false if the EC Api throws an error", async () => {
+    mockEcApi = {
+      getPollingStationAddressInfo: jest.fn().mockImplementation(() => {
+        throw Error();
+      }),
+    };
+    const imageSender = new ImageSender(mockEcApi);
+    const result = await imageSender.sendPollingStationMessage(
+      "name",
+      "postcode",
+      "number",
+      "Sms"
+    );
+    expect(result).toBe(false);
+  });
 });
