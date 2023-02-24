@@ -10,16 +10,20 @@ let twilioApi, logSpy;
 describe("TwilioApi class", () => {
   beforeEach(() => {
     twilioApi = new TwilioApi();
-    logSpy = jest.spyOn(global.console, "log");
-  });
-
-  afterEach(() => {
-    logSpy.mockRestore();
+    mockCreate.mockReset();
   });
 
   it("sends a WhatsApp message", async () => {
-    mockCreate.mockResolvedValue({ sid: "0" });
-    await twilioApi.sendWhatsAppMessage("hello", "1234");
-    expect(logSpy).toHaveBeenCalledWith(`Message sent! SID: 0`);
+    mockCreate.mockResolvedValueOnce({ sid: "0" });
+    const result = await twilioApi.sendWhatsAppMessage("hello", "1234");
+    expect(result).toBe(true);
+  });
+
+  it("catches an error", async () => {
+    mockCreate.mockImplementationOnce(() => {
+      throw new Error();
+    });
+    const result = await twilioApi.sendWhatsAppMessage("hello", "1234");
+    expect(result).toBe(false);
   });
 });

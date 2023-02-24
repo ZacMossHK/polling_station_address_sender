@@ -7,11 +7,17 @@ module.exports = class TwilioApi {
   }
 
   async sendWhatsAppMessage(body, toNumber) {
-    const message = await this.client.messages.create({
-      body,
-      from: `whatsapp:${this.fromNumberWhatsapp}`,
-      to: `whatsapp:${toNumber}`,
-    });
-    console.log(`Message sent! SID: ${message.sid}`);
+    try {
+      const message = await this.client.messages.create({
+        body,
+        from: `whatsapp:${this.fromNumberWhatsapp}`,
+        to: `whatsapp:${toNumber}`,
+      });
+      console.log(`Message sent! SID: ${message.sid}`);
+      return true;
+    } catch (error) {
+      console.log(error);
+      return false;
+    }
   }
 };
