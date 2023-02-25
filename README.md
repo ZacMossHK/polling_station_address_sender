@@ -46,7 +46,7 @@ To run all tests: `jest`
 
 ## Running The Script
 
-Until elections are happening in the UK there will be no polling station information to fetch from the Electoral Commision API, so this will not work until this happens. The test environment for the ElectoralCommisionApi is enabled by default so that messaging can be tested.
+Until elections are happening in the UK there will be no polling station information to fetch from the Electoral Commision API, so this will not work until this happens. The test environment for the ElectoralCommisionApi is enabled by default so an example response will be returned by the method `getPollingStationAddressInfo`.
 
 1. In `index.js` declare these variables:
 
