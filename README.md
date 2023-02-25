@@ -64,7 +64,13 @@ let messageType; // messageType: string, type of message to send. Either "WhatsA
 
 ## Message Example
 
-With `name = Zac` and `test = true`:
+With these variables:
+```javascript
+test = true;
+name = "Zac";
+```
+
+The following message will be sent:
 
 ```
 Hi Zac,
