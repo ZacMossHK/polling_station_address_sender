@@ -10,8 +10,7 @@ module.exports = class ElectoralCommisionApi {
   Throws an error if fetch was unsuccessful,
   or if an address picker is returned (postcode supplied matches several polling station areas),
   or if no polling data exists
-  EC endpoint information and response examples: https://api.electoralcommission.org.uk/docs/
-  */
+  EC endpoint information and response examples: https://api.electoralcommission.org.uk/docs/ */
   async getPollingStationAddressInfo(postcode, test) {
     if (test)
       return {
