@@ -33,7 +33,7 @@ TWILIO_FROM_NUMBER_WHATSAPP = number that will be sending WhatsApp messages
 TWILIO_MESSAGING_SERVICE_SID = SID for sending SMS messages
 ```
 
-#### Tests
+### Tests
 
 To run all tests: `jest`
 
