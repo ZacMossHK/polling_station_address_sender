@@ -9,6 +9,13 @@ https://www.campaignlab.uk/
 
 To install, clone the repo and then `npm i` to install dependencies.
 
+## Tech:
+
+- Javascript
+- Node.js
+- Twilio: messaging API and library
+- Jest: testing framework
+
 ### API Setup
 
 #### Electoral Commision
