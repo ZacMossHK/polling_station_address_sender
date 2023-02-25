@@ -19,17 +19,19 @@ describe("ElectoralCommisionApi class", () => {
     });
   });
 
-  it("returns an empty object if no polling data exists", async () => {
+  it("throws an error if no polling data exists", async () => {
     fetch.mockResponseOnce(JSON.stringify(noUpcomingBallotsResponse));
-    const result = await api.getPollingStationAddressInfo("postcode");
-    expect(result).toEqual({});
+    expect(
+      async () => await api.getPollingStationAddressInfo("postcode")
+    ).rejects.toThrow(Error);
   });
 
   // this can be changed in the future if functionality is added to check for a voter's address
-  it("returns an empty object if address picker is returned", async () => {
+  it("throws an error if address picker is returned", async () => {
     fetch.mockResponseOnce(JSON.stringify(addressPickerResponse));
-    const result = await api.getPollingStationAddressInfo("postcode");
-    expect(result).toEqual({});
+    expect(
+      async () => await api.getPollingStationAddressInfo("postcode")
+    ).rejects.toThrow(Error);
   });
 
   it("throws an error if there was an issue", async () => {
