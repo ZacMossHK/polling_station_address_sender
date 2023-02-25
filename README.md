@@ -5,16 +5,16 @@ This is a script that messages potential voters the address of their polling sta
 Created for Campaign Lab.
 https://www.campaignlab.uk/
 
-## Setup
-
-To install, clone the repo and then `npm i` to install dependencies.
-
-## Tech:
+## Tech
 
 - Javascript
 - Node.js
 - Twilio: messaging API and library
 - Jest: testing framework
+
+## Setup
+
+To install, clone the repo and then `npm i` to install dependencies.
 
 ### API Setup
 
