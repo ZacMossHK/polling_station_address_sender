@@ -16,11 +16,10 @@ module.exports = class ElectoralCommisionApi {
       `https://api.electoralcommission.org.uk/api/v1/postcode/${postcode}?token=${this.apiKey}`
     );
     const result = await response.json();
-    if (!result.dates.length) {
-      if (result.address_picker)
-        throw Error("Electoral Commision API returned address picker");
-      throw Error("EC API returned no polling info");
-    }
-    return result.dates[0].polling_station.station.properties;
+    if (result.dates.length)
+      return result.dates[0].polling_station.station.properties;
+    if (result.address_picker)
+      throw Error("Electoral Commision API returned address picker");
+    throw Error("EC API returned no polling info");
   }
 };
