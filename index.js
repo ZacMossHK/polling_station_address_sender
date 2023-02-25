@@ -3,8 +3,7 @@ test: bool, true will enable the testing environemnt for the ElectoralCommisionA
 name: string, name of the recipient (eg. John Smith)
 postcode: string, postcode of the recipient
 number: string, mobile number of the receipient with an international dialling code, eg. 0798... becomes +44798...
-messageType: string, type of message to send. Either "WhatsApp" or "Sms"
-*/
+messageType: string, type of message to send. Either "WhatsApp" or "Sms" */
 const test = true;
 let name;
 let postcode;
