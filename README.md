@@ -62,7 +62,7 @@ Default response object:
 1. In `index.js` declare these variables:
 
 ```javascript
-const test = true; // true will enable the testing environemnt for the ElectoralCommisionApi class
+const test = true; // test: bool, true will enable the testing environemnt for the ElectoralCommisionApi class, false for production
 let name; // name: string, name of the recipient (eg. John Smith)
 let postcode; // postcode: string, postcode of the recipient
 let number; // number: string, mobile number of the receipient with an international dialling code, eg. 0798... becomes +44798...
