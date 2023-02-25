@@ -46,12 +46,12 @@ To run all tests: `jest`
 
 ## Running The Script
 
-Until elections are happening in the UK there will be no polling station information to fetch from the Electoral Commision API, so this will not work until this happens. The test environment for the ElectoralCommisionApi is enabled by default so an example response will be returned by the method `getPollingStationAddressInfo`.
+Until elections are happening in the UK there will be no polling station information to fetch from the Electoral Commision API, so this script will not work as designed until this happens. The test environment for the ElectoralCommisionApi is enabled by default so an example response object will be returned by the method `ElectoralCommisionApi.getPollingStationAddressInfo`.
 
 1. In `index.js` declare these variables:
 
 ```javascript
-const test = true; // true will enable the testing environemnt for the ElectoralCommisionApi class. It will then return a preset object.
+const test = true; // true will enable the testing environemnt for the ElectoralCommisionApi class
 let name; // name: string, name of the recipient (eg. John Smith)
 let postcode; // postcode: string, postcode of the recipient
 let number; // number: string, mobile number of the receipient with an international dialling code, eg. 0798... becomes +44798...
