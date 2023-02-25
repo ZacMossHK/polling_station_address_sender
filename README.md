@@ -51,3 +51,13 @@ let messageType; // messageType: string, type of message to send. Either "WhatsA
 2. Run `node index.js`
 
 3. Enjoy!
+
+## Message Example
+
+```
+Hi {name},
+
+It's time to vote! Your polling station is:
+
+{address}
+```
