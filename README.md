@@ -1,4 +1,4 @@
-# Polling Station Image Sender for Campaign Lab
+# Polling Station Address Sender
 
 This is a script that messages potential voters the address of their polling station. It uses the Electoral Commision Api to fetch polling station address information and Twilio to send messages using either SMS or WhatsApp messaging services.
 
