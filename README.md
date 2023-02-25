@@ -64,7 +64,7 @@ let messageType; // messageType: string, type of message to send. Either "WhatsA
 
 ## Message Example
 
-With `name` set as `Zac` and `test` set to `true`:
+With `name = Zac` and `test = true`:
 
 ```
 Hi Zac,
