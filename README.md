@@ -48,6 +48,15 @@ To run all tests: `jest`
 
 Until elections are happening in the UK there will be no polling station information to fetch from the Electoral Commision API, so this script will not work as designed until this happens. The test environment for the ElectoralCommisionApi is enabled by default so an example response object will be returned by the method `ElectoralCommisionApi.getPollingStationAddressInfo`.
 
+Default response object:
+
+```javascript
+{
+  postcode: "",
+  address: "Earlswood Social Club, 160-164 Greenway Road, Rumney",
+}
+```
+
 1. In `index.js` declare these variables:
 
 ```javascript
