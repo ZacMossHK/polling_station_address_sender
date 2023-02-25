@@ -39,6 +39,8 @@ To run all tests: `jest`
 
 ## Running The Script
 
+Until elections are happening in the UK there will be no polling station information to fetch from the Electoral Commision API, so this will not work until this happens.
+
 1. In `index.js` declare these variables:
 
 ```javascript
