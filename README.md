@@ -57,6 +57,8 @@ Default response object:
 }
 ```
 
+### Steps To Run
+
 1. In `index.js` declare these variables:
 
 ```javascript
