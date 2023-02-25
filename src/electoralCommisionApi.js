@@ -5,7 +5,7 @@ module.exports = class ElectoralCommisionApi {
 
   /* fetches a polling station information from the Electoral Commision Api
   Args: [postcode: string, test: bool]
-  If test is true, then testing environment is enabled and it will return an object with a preset Address.
+  If test is true, then testing environment is enabled and it will return an object with a preset address.
   Returns an object with polling station information if successful: {address: string, postcode: string}
   Throws an error if fetch was unsuccessful,
   or if an address picker is returned (postcode supplied matches several polling station areas),
