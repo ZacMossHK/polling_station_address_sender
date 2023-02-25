@@ -39,11 +39,12 @@ To run all tests: `jest`
 
 ## Running The Script
 
-Until elections are happening in the UK there will be no polling station information to fetch from the Electoral Commision API, so this will not work until this happens.
+Until elections are happening in the UK there will be no polling station information to fetch from the Electoral Commision API, so this will not work until this happens. The test environment for the ElectoralCommisionApi is enabled by default so that messaging can be tested.
 
 1. In `index.js` declare these variables:
 
 ```javascript
+const test = true; // true will enable the testing environemnt for the ElectoralCommisionApi class. It will then return a preset object.
 let name; // name: string, name of the recipient (eg. John Smith)
 let postcode; // postcode: string, postcode of the recipient
 let number; // number: string, mobile number of the receipient with an international dialling code, eg. 0798... becomes +44798...
@@ -56,10 +57,14 @@ let messageType; // messageType: string, type of message to send. Either "WhatsA
 
 ## Message Example
 
+With `name` set as `Zac` and `test` set to `true`:
+
 ```
-Hi {name},
+Hi Zac,
 
 It's time to vote! Your polling station is:
 
-{address}
+Earlswood Social Club,
+160-164 Greenway Road,
+Rumney
 ```
