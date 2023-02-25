@@ -1,5 +1,5 @@
 /* change the variables below to run
-test: bool, true will enable the testing environemnt for the ElectoralCommisionApi class. It will return a preset object.
+test: bool, true will enable the testing environemnt for the ElectoralCommisionApi class to return a preset object.
 name: string, name of the recipient (eg. John Smith)
 postcode: string, postcode of the recipient
 number: string, mobile number of the receipient with an international dialling code, eg. 0798... becomes +44798...
