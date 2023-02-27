@@ -73,6 +73,14 @@ let messageType; // messageType: string, type of message to send. Either "WhatsA
 
 3. Enjoy!
 
+## What It Does Not Do
+
+### Electoral Commision API - Address Picker Error 
+Some postcodes will return an address picker from the Electoral Commision API, meaning that several addresses related to the given postcode have different polling stations. The next step using the API would be to choose an address, which would return a polling station for that address, however without knowing what format the addresses of potential voters would be in I have left this out as it would be difficult to test. If address picker does happen then the method `ElectoralCommisionApi.getPollingStationAddressInfo` will throw an error. This can be fixed in the future so that a supplied voter address can be used to pick the right address from the API's response.
+
+### Google Maps API
+The original brief was to send Google street view images of polling stations, however the coverage in the UK for polling stations isn't good enough to automate this. The street view API would often returned a photo of the street the station was on without the station itself, or a photo in the direction of the polling station from a different street, looking at some houses (so no polling station in the shot). Both these options are useless and would be confusing to a potential voter. Using a static Google map or link to the Goole Maps address was considered but many polling station addresses do not return a single location or any location at all. This would again be confusing to a voter. Because of this I decided not to use Google Maps for the build of this script.
+
 ## Message Example
 
 With these variables:
