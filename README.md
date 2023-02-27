@@ -73,7 +73,7 @@ let messageType; // messageType: string, type of message to send. Either "WhatsA
 
 3. Enjoy!
 
-## What It Does Not Do
+## What It Does Not Do
 
 ### Electoral Commision API - Address Picker Error 
 Some postcodes will return an address picker from the Electoral Commision API, meaning that several addresses related to the given postcode have different polling stations. The next step using the API would be to choose an address, which would return a polling station for that address, however without knowing what format the addresses of potential voters would be in I have left this out as it would be difficult to test. If address picker does happen then the method `ElectoralCommisionApi.getPollingStationAddressInfo` will throw an error. This can be fixed in the future so that a supplied voter address can be used to pick the right address from the API's response.
